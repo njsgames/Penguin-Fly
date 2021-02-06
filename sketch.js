@@ -31,7 +31,7 @@ var wingAngle
 function init()
 {
     clouds = [
-        {x_pos: 200, y_pos: 100, size: 50},
+        {x_pos: 200, y_pos: 100, size: 80},
         {x_pos: 700, y_pos: 120, size: 70},
         {x_pos: 1200, y_pos: 80, size: 50},
         {x_pos: 1700, y_pos: 89, size: 70},
@@ -142,7 +142,7 @@ function draw()
     }
     checkInBounds()
     checkPipeCollision()
-  
+
 	background(100, 155, 255); // fill the sky blue
   fill(255)
   // rect(0, height * 3/4, width, height/4);
@@ -247,11 +247,13 @@ function drawCloud(cloud)
 {
     push();
     noStroke();
+    fill(255, 131, 0);
+    ellipse(cloud.x_pos - 100, cloud.y_pos, cloud.size, 50)
     fill(255);
-    ellipse(cloud.x_pos - 100, cloud.y_pos, cloud.size);
-    ellipse(cloud.x_pos - 60, cloud.y_pos, cloud.size);
-    ellipse(cloud.x_pos - 130, cloud.y_pos, cloud.size, cloud.size/1.2);
-    ellipse(cloud.x_pos - 30, cloud.y_pos, cloud.size, cloud.size/1.2);
+    ellipse(cloud.x_pos - 120, cloud.y_pos - 7, cloud.size / 10)
+    // ellipse(cloud.x_pos - 60, cloud.y_pos, cloud.size);
+    // ellipse(cloud.x_pos - 130, cloud.y_pos, cloud.size, cloud.size/1.2);
+    // ellipse(cloud.x_pos - 30, cloud.y_pos, cloud.size, cloud.size/1.2);
     pop();
 }
 
@@ -259,7 +261,7 @@ function drawPipe(pipe)
 {
     push();
     noStroke();
-    fill(160, 160, 160);
+    fill(214, 236, 239);
     rect(pipe.x_pos, 0, PIPE_WIDTH, pipe.y_pos);
     rect(pipe.x_pos - PIPE_LIP, pipe.y_pos - PIPE_LIP, PIPE_WIDTH + 2*PIPE_LIP, PIPE_LIP);
     let h = pipe.y_pos + pipe.gap
